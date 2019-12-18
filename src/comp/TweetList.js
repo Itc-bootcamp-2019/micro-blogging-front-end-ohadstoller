@@ -2,12 +2,11 @@ import React from 'react';
 import MyAppContext from '../context/MyAppContext';
 import '../App.css'
 
-const NamesList = props => {
-  // const { names } = props;
+const TweetList = props => {
+  // const { tweets } = props;
   return (
     <MyAppContext.Consumer>
-      {({ addName, tweets }) => (
-
+      {({ addTweet, tweets }) => (
 
         <div >
           {tweets.map(tweet => (
@@ -19,15 +18,9 @@ const NamesList = props => {
           ))}
         </div>
 
-        // {/* <ul>
-        //   {names.map(name => (
-        //     <li key={name}>{name}</li>
-        //   ))}
-        // </ul> */}
-
       )}
     </MyAppContext.Consumer>
   );
 };
 
-export default NamesList;
+export default TweetList;

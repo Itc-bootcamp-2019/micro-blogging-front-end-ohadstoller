@@ -1,7 +1,7 @@
 import React from 'react';
 import MyAppContext from '../context/MyAppContext';
 
-class Child3 extends React.Component {
+class Tweet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,10 +15,10 @@ class Child3 extends React.Component {
 
   render() {
     // const { onSubmit } = this.props;
-    const { tweet: tweet } = this.state;
+    const { tweet } = this.state;
     return (
       <MyAppContext.Consumer>
-        {({ addName, tweets }) => (
+        {({ addTweet, tweets }) => (
           <div>
             <textarea
               className="text-box" type="text" rows="8" cols="100"
@@ -27,8 +27,8 @@ class Child3 extends React.Component {
             </textarea>
 
 
-            <button className="tweet-button shadow" 
-            onClick={() => addName(tweet)}>Tweet
+            <button className="tweet-button shadow"
+              onClick={() => addTweet(tweet)}>Tweet
             </button>
           </div>
         )}
@@ -37,4 +37,4 @@ class Child3 extends React.Component {
   }
 }
 
-export default Child3;
+export default Tweet;

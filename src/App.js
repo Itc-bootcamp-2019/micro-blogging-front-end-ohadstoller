@@ -1,29 +1,27 @@
 import React from 'react';
 import './App.css';
-import Child1 from './comp/Child1';
+import Post from './comp/Post';
 import MyAppContext from "./context/MyAppContext";
-import NamesList from './comp/NamesList';
-// import Child2 from './comp/Child2';
-// import Child3 from './comp/Child3';
+import TweetList from './comp/TweetList';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       tweets: [],
-      addName: this.handleOnSubmit.bind(this)
+      addTweet: this.handleOnSubmit.bind(this)
     };
   }
 
   handleOnSubmit(tweet) {
-    const { tweets: tweets } = this.state;
-    this.setState({ tweets: [tweet,...tweets] });
-    
+    const { tweets } = this.state;
+    this.setState({ tweets: [tweet, ...tweets] });
+
   }
   // const newDate = new Date("2019-12-15T14:40:58.340Z");
 
   render() {
-    // const { names } = this.state;
     return (
       <>
         <nav className="nav-bar">
@@ -33,19 +31,16 @@ class App extends React.Component {
 
 
         <MyAppContext.Provider value={this.state}>
+
           <div className="post-box">
-            <Child1
-            // onSubmit={name => this.handleOnSubmit(name)}
-            />
-            {/* <button className="tweet-button">Tweet</button> */}
+            <Post />
           </div>
 
           <div className="feed">
-          <NamesList
-          // names={names}
-          />
+            <TweetList />
+
           </div>
-  
+
         </MyAppContext.Provider>
 
 
