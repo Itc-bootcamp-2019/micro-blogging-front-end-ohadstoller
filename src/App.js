@@ -11,9 +11,9 @@ class App extends React.Component {
     this.state = {
       tweets: [],
       addTweet: this.handleOnSubmit.bind(this)
-    };
-  }
 
+    };
+  };
   handleOnSubmit(tweet) {
     // let newDate = new Date();
     // tweetObj = { 
@@ -23,8 +23,26 @@ class App extends React.Component {
     // }
     const { tweets } = this.state;
     this.setState({ tweets: [tweet, ...tweets] });
-  }
-  // const newDate = new Date("2019-12-15T14:40:58.340Z");
+    
+  };
+
+  componentDidMount() {
+    // update to if statement at the end
+    localStorage.getItem('tweets') && this.setState({
+      tweets: JSON.parse(localStorage.getItem('tweets'))
+    })
+  };
+
+  componentWillUpdate(nextProps, nextStage) {
+    localStorage.setItem('tweets', JSON.stringify(nextStage.tweets));
+  };
+
+
+
+
+
+
+
 
   render() {
     return (

@@ -11,6 +11,7 @@ class CreateTweet extends React.Component {
 
   handleNameChange(event) {
     this.setState({ tweet: event.target.value });
+    
   }
 
   render() {
@@ -23,6 +24,7 @@ class CreateTweet extends React.Component {
               className="text-box" type="text" rows="8" cols="100"
               placeholder="What you have in mind..."
               onChange={event => this.handleNameChange(event)}>
+                
             </textarea>
 
 
