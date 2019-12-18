@@ -11,8 +11,8 @@ const TweetList = props => {
         <div >
           {tweets.map(tweet => (
             <div className="tweet-box" key={tweet}>
-              {tweet}
-              <p className="post-date"> {Date.now()}
+              {tweet.content}
+              <p className="post-date"> {tweet.date}
               </p>
             </div>
           ))}

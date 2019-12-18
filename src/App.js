@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Post from './comp/Post';
+import CreateTweet from './comp/CreateTweet';
 import MyAppContext from "./context/MyAppContext";
 import TweetList from './comp/TweetList';
 
@@ -15,9 +15,14 @@ class App extends React.Component {
   }
 
   handleOnSubmit(tweet) {
+    // let newDate = new Date();
+    // tweetObj = { 
+    //   content: tweet, 
+    //   date: newDate, 
+    //   userName: "Ohad Stoller"
+    // }
     const { tweets } = this.state;
     this.setState({ tweets: [tweet, ...tweets] });
-
   }
   // const newDate = new Date("2019-12-15T14:40:58.340Z");
 
@@ -33,12 +38,11 @@ class App extends React.Component {
         <MyAppContext.Provider value={this.state}>
 
           <div className="post-box">
-            <Post />
+            <CreateTweet />
           </div>
 
           <div className="feed">
             <TweetList />
-
           </div>
 
         </MyAppContext.Provider>

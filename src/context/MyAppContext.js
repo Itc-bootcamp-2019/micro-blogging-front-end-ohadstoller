@@ -4,5 +4,4 @@ const MyAppContext = React.createContext({
   tweets: [],
   addTweet: (tweet) => { }
 });
-
 export default MyAppContext;

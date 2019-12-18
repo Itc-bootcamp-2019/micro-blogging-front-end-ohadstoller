@@ -1,7 +1,7 @@
 import React from 'react';
 import MyAppContext from '../context/MyAppContext';
 
-class Tweet extends React.Component {
+class CreateTweet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,6 @@ class Tweet extends React.Component {
   }
 
   render() {
-    // const { onSubmit } = this.props;
     const { tweet } = this.state;
     return (
       <MyAppContext.Consumer>
@@ -28,7 +27,7 @@ class Tweet extends React.Component {
 
 
             <button className="tweet-button shadow"
-              onClick={() => addTweet(tweet)}>Tweet
+              onClick={() => addTweet({ content: tweet, userName: 'asdf', date:  new Date().toISOString() })}>Tweet
             </button>
           </div>
         )}
@@ -37,4 +36,4 @@ class Tweet extends React.Component {
   }
 }
 
-export default Tweet;
+export default CreateTweet;
