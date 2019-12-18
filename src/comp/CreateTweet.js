@@ -6,12 +6,13 @@ class CreateTweet extends React.Component {
     super(props);
     this.state = {
       tweet: ''
+
     };
   }
 
   handleNameChange(event) {
     this.setState({ tweet: event.target.value });
-    
+
   }
 
   render() {
@@ -24,12 +25,15 @@ class CreateTweet extends React.Component {
               className="text-box" type="text" rows="8" cols="100"
               placeholder="What you have in mind..."
               onChange={event => this.handleNameChange(event)}>
-                
+
             </textarea>
 
 
             <button className="tweet-button shadow"
-              onClick={() => addTweet({ content: tweet, userName: 'asdf', date:  new Date().toISOString() })}>Tweet
+              onClick={() => addTweet({
+                content: tweet, userName: 'Ohad Mark Stoller',
+                date: new Date().toISOString(),
+              })}>Tweet
             </button>
           </div>
         )}

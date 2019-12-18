@@ -106,6 +106,7 @@ body {
   width: 169px;
   height: 16px;
   margin-right: 5px;
+  margin-top: 10px;
   float: right;
   display: inline;
   font-family: Roboto;
@@ -113,11 +114,37 @@ body {
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  /* display: flex; */
+  display: flex;
 
   align-items: center;
   text-align: right;
   color: #6C757D;  
+}
+
+.user-name {
+  position: absolute;
+  width: 169px;
+  height: 16px;
+  margin-left: 10px;
+  margin-top: 10px;
+  /* float: left; */
+  display: inline;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+
+  align-items: center;
+  text-align: right;
+  color: #6C757D;
+}
+
+.text-area {
+  margin-left: 10px;
+  top: 48px;
+  position: absolute;
 }
 
 .tweet-button {
@@ -165,10 +192,6 @@ cursor: pointer;
   position: relative;
   width: 600px;
   height: 100px;
-
-  
-  
-  
   background: #343A40;
   border-radius: 6px;
   /* border: 1px solid white; */
