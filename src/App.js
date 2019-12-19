@@ -41,9 +41,9 @@ class App extends React.Component {
 
     this.sendGetApiRequest();
     setInterval(() => {
-      console.log('hi')
+      // console.log('hi')
       this.sendGetApiRequest()
-    }, 5000);
+    }, 3000);
   }
 
 
@@ -79,12 +79,15 @@ class App extends React.Component {
 
             <Route exact path="/profile">
 
-              <div className="post-box">
-
+              <div className="profile-header">
+                Profile
               </div>
+              <div className="user-name-placer"> User Name </div>
 
-              <div className="feed">
+              <textarea className="user-name-text-area"> </textarea>
 
+              <div className="save-button">
+                <p className="save-text"> Save</p>
               </div>
 
             </Route>

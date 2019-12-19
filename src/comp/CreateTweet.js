@@ -6,7 +6,7 @@ class CreateTweet extends React.Component {
     super(props);
     this.state = {
       tweet: '',
-      
+
 
     };
   }
@@ -28,7 +28,7 @@ class CreateTweet extends React.Component {
         {({ addTweet, tweets }) => (
           <div>
             <textarea
-              value={this.state.tweet} className="text-box" type="text" rows="8" cols="100" 
+              value={this.state.tweet} className="text-box" type="text" rows="8" cols="100"
               placeholder="What you have in mind..."
               onChange={event => this.handleNameChange(event)}>
 
@@ -42,13 +42,13 @@ class CreateTweet extends React.Component {
                   content: tweet, userName: 'Ohad Mark Stoller',
                   date: new Date().toISOString(),
                 });
-              this.clearContents();
-            }}>
+                this.clearContents();
+              }}>
               Tweet
             </button>
           </div>
-    )
-  }
+        )
+        }
       </MyAppContext.Consumer>
     );
   }

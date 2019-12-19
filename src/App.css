@@ -214,8 +214,88 @@ cursor: pointer;
   color: #FFFFFF;
 }
 
+.user-name-placer {
+position: absolute;
+width: 90px;
+height: 21px;
+left: 368px;
+top: 178px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
 
 
+color: rgba(255, 255, 255, 0.8);
+}
+
+.user-name-text-area {
+position: absolute;
+width: 600px;
+height: 61px;
+left: 367px;
+top: 205px;
+border: 2px solid #CCCCCC;
+box-sizing: border-box;
+border-radius: 6px;
+background-color: #15202B;
+  
+font-family: 'Roboto', sans-serif;
+order: none;
+overflow: auto;
+outline: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+resize: none;
+position: absolute;
+
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+color: #CCCCCC;
+
+
+}
+
+.text-area-user {
+  margin-left: 5px;
+  top: 5px;
+  position: absolute;
+}
+
+.save-button {
+position: absolute;
+width: 68px;
+height: 34px;
+left: 889px;
+top: 282px;
+background: #007BFF;
+border-radius: 4px;
+}
+
+.save-text {
+position: absolute;
+/* width: 53px;
+height: 29px; */
+margin-left: 17px;
+margin-top: 8px; 
+
+font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+/* line-height: 19px; */
+display: flex;
+/* align-items: center; */
+/* text-align: center; */
+
+color: #FFFFFF;
+}
 
 
 
