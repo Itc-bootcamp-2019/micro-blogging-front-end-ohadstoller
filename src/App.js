@@ -4,6 +4,7 @@ import CreateTweet from './comp/CreateTweet';
 import MyAppContext from "./context/MyAppContext";
 import TweetList from './comp/TweetList';
 import { postTweetOnline } from "../src/lib/api";
+import { getOnlineTweets } from "../src/lib/api";
 
 
 class App extends React.Component {
@@ -16,31 +17,49 @@ class App extends React.Component {
 
     };
   };
+  componentDidMount() {
+    getOnlineTweets().then(response => {
+      console.log(response.data.tweets);
+      
+      this.setState({ tweets: response.data.tweets });
+
+
+    });
+  }
   handleOnSubmit(tweet) {
-    const { tweets } = this.state;
-    this.setState({ tweets: [tweet, ...tweets] });
+
+    
+    // const { tweets } = this.state;
+    // this.setState({ tweets: [tweet, ...tweets] });
 
     postTweetOnline(tweet).then(response => {
       const tweet = response;
       this.setState({ tweet: tweet, loading: false });
       
+
     });
+
+
   };
 
-  // Commented below: for local storage
-  // componentDidMount() {
-  //   localStorage.getItem('tweets') && this.setState({
-  //     tweets: JSON.parse(localStorage.getItem('tweets'))
-  //   })
-  // };
+  componentDidUpdate() {
+    getOnlineTweets().then(response => {
+      // console.log(response.data.tweets);
+      
+      this.setState({ tweets: response.data.tweets });
+      // document.getElementsByClassName("text-box").value = ''
 
-  // componentWillUpdate(nextProps, nextStage) {
-  //   localStorage.setItem('tweets', JSON.stringify(nextStage.tweets));
-  // };
 
-   
-   
-  
+    });
+  }
+
+
+
+
+
+
+
+
 
   render() {
     return (
