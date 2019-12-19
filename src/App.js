@@ -5,7 +5,7 @@ import MyAppContext from "./context/MyAppContext";
 import TweetList from './comp/TweetList';
 import { postTweetOnline } from "../src/lib/api";
 import { getOnlineTweets } from "../src/lib/api";
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props) {
@@ -17,78 +17,83 @@ class App extends React.Component {
 
     };
   };
-  componentDidMount() {
-    getOnlineTweets().then(response => {
-      console.log(response.data.tweets);
-      
-      this.setState({ tweets: response.data.tweets });
 
-
-    });
-  }
   handleOnSubmit(tweet) {
-
-    
-    // const { tweets } = this.state;
-    // this.setState({ tweets: [tweet, ...tweets] });
-
     postTweetOnline(tweet).then(response => {
       const tweet = response;
-      this.setState({ tweet: tweet, loading: false });
-      
-
+      this.setState({
+        tweet: tweet, loading: false
+      });
     });
-
-
   };
 
-  componentDidUpdate() {
+  sendGetApiRequest() {
     getOnlineTweets().then(response => {
-      // console.log(response.data.tweets);
-      
-      this.setState({ tweets: response.data.tweets });
-      // document.getElementsByClassName("text-box").value = ''
-
-
+      this.setState(
+        {
+          tweets: response.data.tweets
+        }
+      );
     });
+  };
+
+  componentDidMount() {
+
+    this.sendGetApiRequest();
+    setInterval(() => {
+      console.log('hi')
+      this.sendGetApiRequest()
+    }, 5000);
   }
-
-
-
-
-
-
 
 
 
   render() {
     return (
-      <>
-        <nav className="nav-bar">
-          <p className="bar-button"> Home</p>
-          <p className="bar-button"> Profile</p>
-        </nav>
+      <Router>
+        <>
+          <nav className="nav-bar">
+            <Link to="/home">
+              <p className="bar-button"> Home
+            </p>
+            </Link>
+            <Link to="/profile">
+              <p className="bar-button"> Profile
+            </p>
+            </Link>
+          </nav>
+
+          <Switch>
+            <Route exact path="/home">
+
+              <MyAppContext.Provider value={this.state}>
+                <div className="post-box">
+                  <CreateTweet />
+                </div>
+                <div className="feed">
+                  <TweetList />
+                </div>
+              </MyAppContext.Provider>
+
+            </Route>
+
+            <Route exact path="/profile">
+
+              <div className="post-box">
+
+              </div>
+
+              <div className="feed">
+
+              </div>
+
+            </Route>
 
 
-        <MyAppContext.Provider value={this.state}>
+          </Switch>
 
-          <div className="post-box">
-            <CreateTweet />
-          </div>
-
-          <div className="feed">
-            <TweetList />
-          </div>
-
-        </MyAppContext.Provider>
-
-
-
-
-
-
-
-      </>
+        </>
+      </Router>
     );
   }
 }

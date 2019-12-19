@@ -198,6 +198,22 @@ cursor: pointer;
 
 }
 
+.profile-header {
+  position: absolute;
+  width: 103px;
+  height: 42px;
+  left: 369px;
+  top: 110px;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #FFFFFF;
+}
+
 
 
 
