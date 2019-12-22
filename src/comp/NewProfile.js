@@ -1,57 +1,57 @@
 import React from 'react';
-import MyAppContext from '../context/MyAppContext';
 
-class NewUser extends React.Component {
+class NewProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tweet: '',
-
-
+            userName: '',
         };
     }
 
     handleNameChange(event) {
-        this.setState({ tweet: event.target.value });
+        this.setState({ userName: event.target.value });
+    }
 
-
+    save() {
+        console.log("saving");
+        localStorage.setItem('userName', this.state.userName)
     }
 
     clearContents = (element) => {
-        this.setState({ tweet: '' });
+        this.setState({ userName: '' });
     }
 
     render() {
-        const { tweet } = this.state;
+
         return (
-            <MyAppContext.Consumer>
-                {({ addTweet, tweets }) => (
-                    <div>
-                        <textarea
-                            value={this.state.tweet} className="text-box" type="text" rows="8" cols="100"
-                            placeholder="What you have in mind..."
-                            onChange={event => this.handleNameChange(event)}>
 
-                        </textarea>
+            <>
+                <div className="profile-header">
+                    Profile
+                </div>
+                <div className="user-name-placer"> {localStorage.getItem('userName')} </div>
 
+                <textarea
+                    className="user-name-text-area"
+                    value={this.state.userName}
+                    type="text"
+                    placeholder="type your user name.."
+                    onChange={event => this.handleNameChange(event)}
+                    rows="2" cols="50">
+                </textarea>
 
-                        <button className="tweet-button shadow"
-                            onClick={() => {
+                <button className="save-button" onClick={() => { this.save() }}>
+                    Save
+                    </button>
 
-                                addTweet({
-                                    content: tweet, userName: 'Ohad Mark Stoller',
-                                    date: new Date().toISOString(),
-                                });
-                                this.clearContents();
-                            }}>
-                            Tweet
-            </button>
-                    </div>
-                )
-                }
-            </MyAppContext.Consumer>
-        );
+            </>
+
+        )
+
     }
 }
 
-export default NewUser;
+export default NewProfile;
+
+
+

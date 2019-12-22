@@ -216,16 +216,16 @@ cursor: pointer;
 
 .user-name-placer {
 position: absolute;
-width: 90px;
+width: 145px;
 height: 21px;
 left: 368px;
 top: 178px;
 
-font-family: Roboto;
+font-family: 'Roboto', sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
-line-height: 21px;
+line-height: 17px;
 /* identical to box height */
 
 
@@ -276,6 +276,16 @@ left: 889px;
 top: 282px;
 background: #007BFF;
 border-radius: 4px;
+font-size: 100%;
+border: 0px;
+padding: 0px;
+font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+color: #FFFFFF;
+
+
 }
 
 .save-text {
@@ -295,6 +305,9 @@ display: flex;
 /* text-align: center; */
 
 color: #FFFFFF;
+font-size: 100%;
+border: 0px;
+padding: 0px;
 }
 
 

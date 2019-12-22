@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import CreateTweet from './comp/CreateTweet';
+import NewProfile from './comp/NewProfile';
 import MyAppContext from "./context/MyAppContext";
 import TweetList from './comp/TweetList';
 import { postTweetOnline } from "../src/lib/api";
@@ -13,7 +14,8 @@ class App extends React.Component {
     this.state = {
       tweets: [],
       addTweet: this.handleOnSubmit.bind(this),
-      loading: true
+      loading: true,
+      // userName: 'userName',
 
     };
   };
@@ -41,12 +43,9 @@ class App extends React.Component {
 
     this.sendGetApiRequest();
     setInterval(() => {
-      // console.log('hi')
-      this.sendGetApiRequest()
+      this.sendGetApiRequest();
     }, 3000);
   }
-
-
 
   render() {
     return (
@@ -78,17 +77,7 @@ class App extends React.Component {
             </Route>
 
             <Route exact path="/profile">
-
-              <div className="profile-header">
-                Profile
-              </div>
-              <div className="user-name-placer"> User Name </div>
-
-              <textarea className="user-name-text-area"> </textarea>
-
-              <div className="save-button">
-                <p className="save-text"> Save</p>
-              </div>
+              <NewProfile />
 
             </Route>
 

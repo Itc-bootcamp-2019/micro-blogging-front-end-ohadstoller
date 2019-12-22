@@ -39,7 +39,7 @@ class CreateTweet extends React.Component {
               onClick={() => {
 
                 addTweet({
-                  content: tweet, userName: 'Ohad Mark Stoller',
+                  content: tweet, userName: localStorage.getItem('userName'),
                   date: new Date().toISOString(),
                 });
                 this.clearContents();
