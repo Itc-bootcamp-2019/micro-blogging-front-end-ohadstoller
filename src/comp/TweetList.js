@@ -3,7 +3,7 @@ import MyAppContext from '../context/MyAppContext';
 import '../App.css'
 
 const TweetList = props => {
-  // const { tweets } = props;
+
   return (
     <MyAppContext.Consumer>
       {({ addTweet, tweets }) => (
@@ -11,10 +11,10 @@ const TweetList = props => {
         <div >
           {tweets.map(tweet => (
             <div className="tweet-box" key={tweet.date}>
-
               <p className="post-date"> {tweet.date}
               </p>
-              <p className="user-name"> {tweet.userName} </p>
+              <p className="user-name"> {tweet.userName}
+              </p>
               <div className="text-area">
                 {tweet.content}
               </div>

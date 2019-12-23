@@ -11,10 +11,10 @@ class CreateTweet extends React.Component {
     };
   }
 
-  handleNameChange(event) {
-    this.setState({ tweet: event.target.value });
-
-
+  handleTweetChange(event) {
+    this.setState(
+      { tweet: event.target.value }
+    );
   }
 
   clearContents = (element) => {
@@ -28,16 +28,19 @@ class CreateTweet extends React.Component {
         {({ addTweet, tweets }) => (
           <div>
             <textarea
-              value={this.state.tweet} className="text-box" type="text" rows="8" cols="100"
+              value={this.state.tweet}
+              className="text-box"
+              type="text"
+              rows="8" cols="100"
               placeholder="What you have in mind..."
-              onChange={event => this.handleNameChange(event)}>
+              onChange={
+                event => this.handleTweetChange(event)
+              }
+            />
 
-            </textarea>
-
-
-            <button className="tweet-button shadow"
+            <button
+              className="tweet-button shadow"
               onClick={() => {
-
                 addTweet({
                   content: tweet, userName: localStorage.getItem('userName'),
                   date: new Date().toISOString(),
