@@ -4,7 +4,7 @@ class NewProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: '',
+            userName: 'Ohad',
         };
     }
 

@@ -27,6 +27,10 @@ class App extends React.Component {
     });
   };
 
+  createDefaultUser() {
+    localStorage.setItem('userName', 'Random User')
+  }
+
   sendGetApiRequest() {
     getOnlineTweets().then(response => {
       this.setState(
@@ -38,6 +42,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    this.createDefaultUser();
     this.sendGetApiRequest();
     setInterval(() => {
       this.sendGetApiRequest();
