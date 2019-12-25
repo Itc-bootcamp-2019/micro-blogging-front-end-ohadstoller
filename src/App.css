@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  display: flex;
   background: #15202B;
   position: relative;
   width: 1440px;
@@ -29,12 +30,14 @@ justify-content: center;
 }
 
 .nav-bar {
+  display: flex;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  justify-items: center;
   font-family: 'Roboto', sans-serif;
   position: absolute;
-  flex-direction: row;
-  width: 1076px;
+  width: 70vw;
   height: 58px;
-  left: 182px;
   margin-top: 0px;
   background: #343A40;
   border-radius: 6px;
@@ -43,10 +46,10 @@ justify-content: center;
 .bar-button {
     font-family: 'Roboto', sans-serif;
     position: relative;
-    margin-left: 15px;
+    margin-left: 10px;
     padding: 15px;
     display: inline; 
-    left: 35.87px;
+    left: 3vw;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
