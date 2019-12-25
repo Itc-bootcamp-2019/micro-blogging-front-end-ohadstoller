@@ -4,12 +4,14 @@ class NewProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: 'Ohad',
+            userName: '',
         };
     }
 
     handleNameChange(event) {
-        this.setState({ userName: event.target.value });
+        this.setState({
+            userName: event.target.value
+        });
     }
 
     save() {

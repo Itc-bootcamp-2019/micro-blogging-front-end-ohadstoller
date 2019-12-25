@@ -6,7 +6,13 @@ import MyAppContext from "./context/MyAppContext";
 import TweetList from './comp/TweetList';
 import { postTweetOnline } from "../src/lib/api";
 import { getOnlineTweets } from "../src/lib/api";
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from 'react-router-dom'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -28,7 +34,9 @@ class App extends React.Component {
   };
 
   createDefaultUser() {
-    localStorage.setItem('userName', 'Random User')
+    if (localStorage.getItem('userName') == null) {
+      localStorage.setItem('userName', 'Random User')
+    };
   }
 
   sendGetApiRequest() {
@@ -42,6 +50,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    document.title = `Micro-Blogging`;
     this.createDefaultUser();
     this.sendGetApiRequest();
     setInterval(() => {
