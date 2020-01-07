@@ -16,14 +16,21 @@ export default class HomePage extends React.Component {
         };
     };
 
+
+
     handleOnSubmit(tweet) {
         postTweetOnline(tweet).then(response => {
             const tweet = response;
             this.setState({
-                tweet: tweet, loading: false
+                tweet: tweet,
+                loading: false
             });
         });
     };
+
+
+
+
 
     createDefaultUser() {
         if (localStorage.getItem('userName') == null) {
@@ -48,6 +55,7 @@ export default class HomePage extends React.Component {
         setInterval(() => {
             this.sendGetApiRequest();
         }, 3000);
+
     }
 
     render() {
