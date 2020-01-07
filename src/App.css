@@ -30,13 +30,13 @@ justify-content: center;
 }
 
 .nav-bar {
-  display: flex;
+  display: absolute;
   margin-left: 15vw;
   margin-right: 15vw;
   justify-items: center;
   font-family: 'Roboto', sans-serif;
   position: absolute;
-  width: 70vw;
+  width: 1000px;
   height: 58px;
   margin-top: 0px;
   background: #343A40;
